@@ -54,10 +54,23 @@ namespace StringSafari
         /// <param name="str">The string to search</param>
         /// <returns>true if the string has at least two zebras in it, false otherwise</returns>
         public static bool HasADazzle(string str)
+        
         {
             // TODO
-            return false;
+            int fisrtZebra = str.IndexOf("zebra");
+            int lastZebra = str.LastIndexOf("zebra");
+            int numberOfZebras = lastZebra - fisrtZebra;
+
+            if (numberOfZebras >= 2)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
+
 
         /// <summary>
         /// Looks for at least two lions in <paramref name="str"/>.
