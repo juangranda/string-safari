@@ -107,7 +107,24 @@ namespace StringSafari
         public static bool ThereWillBeBlood(string str)
         {
             // TODO
-            return false;
+            str = str.ToLower();
+            int fisrtZebra = str.IndexOf("zebra");
+            int lastZebra = str.LastIndexOf("zebra");
+            int numberOfZebras = lastZebra - fisrtZebra;
+
+            int fisrtLion = str.IndexOf("lion");
+            int lastLion = str.LastIndexOf("lion");
+            int numberOfLions = lastLion - fisrtLion;
+
+            if (numberOfLions >= 2 && numberOfZebras == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
         /// <summary>
