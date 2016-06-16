@@ -44,7 +44,7 @@ namespace StringSafari
         public static bool HasZebra(string str)
         {
             // TODO
-            return str.ToLower().Contains("zebra");
+            return HasBabyZebra(str.ToLower());
         }
 
         /// <summary>
@@ -60,15 +60,14 @@ namespace StringSafari
 
             int fisrtZebra = str.ToLower().IndexOf("zebra");
             int lastZebra = str.ToLower().LastIndexOf("zebra");
-            int numberOfZebras = lastZebra - fisrtZebra;
-
-            if (numberOfZebras > 0)
+           
+            if (fisrtZebra == lastZebra)
             {
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
         }
 
@@ -83,18 +82,17 @@ namespace StringSafari
         public static bool HasAPride(string str)
         {
             // TODO
-            str = str.ToLower();
-            int fisrtLion = str.IndexOf("lion");
-            int lastLion = str.LastIndexOf("lion");
-            int numberOfLions = lastLion - fisrtLion;
-
-            if (numberOfLions >= 2)
+            
+            int fisrtLion = str.ToLower().IndexOf("lion");
+            int lastLion = str.ToLower().LastIndexOf("lion");
+            
+            if (fisrtLion == lastLion)  
             {
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
             
         }
@@ -108,16 +106,7 @@ namespace StringSafari
         public static bool ThereWillBeBlood(string str)
         {
             // TODO
-            str = str.ToLower();
-            int fisrtZebra = str.IndexOf("zebra");
-            int lastZebra = str.LastIndexOf("zebra");
-            int numberOfZebras = lastZebra - fisrtZebra;
-
-            int fisrtLion = str.IndexOf("lion");
-            int lastLion = str.LastIndexOf("lion");
-            int numberOfLions = lastLion - fisrtLion;
-
-            if (numberOfLions >= 2 && numberOfZebras == 1)
+            if (HasAPride(str) && (!HasADazzle(str) && HasZebra(str)))
             {
                 return true;
             }
@@ -125,8 +114,9 @@ namespace StringSafari
             {
                 return false;
             }
-            
         }
+            
+           
 
         /// <summary>
         /// Looks for a lion and determines if the lion is far enough away for safety.
@@ -138,10 +128,8 @@ namespace StringSafari
         public static bool SafeDistanceToLion(string str)
         {
             // TODO
-            str = str.ToLower();
-            int lion = str.IndexOf("lion");
-
-            if (lion == 0)
+            string newString = str.ToLower();
+            if (newString.StartsWith("lion"))
             {
                 return false;
             }
