@@ -44,7 +44,7 @@ namespace StringSafari
         public static bool HasZebra(string str)
         {
             // TODO
-            return str.ToLower() == "zebra";
+            return str.ToLower().Contains("zebra");
         }
 
         /// <summary>
@@ -57,11 +57,12 @@ namespace StringSafari
         
         {
             // TODO
-            int fisrtZebra = str.IndexOf("zebra");
-            int lastZebra = str.LastIndexOf("zebra");
+
+            int fisrtZebra = str.ToLower().IndexOf("zebra");
+            int lastZebra = str.ToLower().LastIndexOf("zebra");
             int numberOfZebras = lastZebra - fisrtZebra;
 
-            if (numberOfZebras >= 2)
+            if (numberOfZebras > 0)
             {
                 return true;
             }
